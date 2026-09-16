@@ -1,0 +1,138 @@
+---
+title: "Fix Common Argus Issues: Mic, Wake Word, and Voice"
+sidebarTitle: "Common Issues"
+description: "Solutions to the most common Argus problems: wake word not detected, missing voice responses, mic button unresponsive, and misrecognized commands."
+---
+
+Most Argus problems trace back to one of three things: microphone permissions, browser compatibility, or command phrasing. Work through the accordion items below to find your issue and apply the fix — each entry describes what causes the problem and exactly what to do about it.
+
+<AccordionGroup>
+
+<Accordion title="Argus doesn't respond to the wake word">
+**What's happening**
+
+Argus uses the browser's built-in Web Speech API to listen for "Hey Argus." If the API isn't running — because microphone access was denied or the browser doesn't support it — the wake word listener never activates and your voice goes unheard.
+
+**How to fix it**
+
+<Steps>
+  <Step title="Check your microphone permission">
+    Look for the camera/mic icon in your browser's address bar. If it shows a blocked symbol, click it and select **Allow** for microphone access, then reload the page.
+  </Step>
+  <Step title="Confirm you're using a supported browser">
+    Argus requires Chrome or Edge on desktop. Firefox and Safari do not support the SpeechRecognition API. If you're on an unsupported browser, switch to Chrome or Edge and try again.
+  </Step>
+  <Step title="Use text input as a fallback">
+    If voice still doesn't work, type your command directly into the text field. All commands that Argus understands by voice work identically when typed.
+  </Step>
+</Steps>
+</Accordion>
+
+<Accordion title="Status shows 'Didn't catch a command'">
+**What's happening**
+
+After Argus hears the wake word, it opens a 6-second window waiting for your command. If no speech is detected — or speech ends before the recognizer captures a full phrase — the status resets and shows "Didn't catch a command."
+
+**How to fix it**
+
+<Steps>
+  <Step title="Say the wake word again">
+    Say "Hey Argus" clearly to open a fresh 6-second listening window.
+  </Step>
+  <Step title="Follow immediately with your command">
+    Don't pause between the wake word confirmation and your command. As soon as Argus acknowledges it heard you, speak your full command in one breath — for example, "open YouTube" or "what time is it."
+  </Step>
+</Steps>
+
+<Tip>
+  If you find the 6-second window too short, tap the mic button directly. This starts a manual listening session without the wake word and gives you the same window with a deliberate start.
+</Tip>
+</Accordion>
+
+<Accordion title="Argus opened the wrong website or searched instead of opening">
+**What's happening**
+
+Argus matches your spoken words against a fixed list of recognized command phrases. If your phrasing doesn't match exactly — for example, saying "go to YouTube" instead of "open YouTube" — the command isn't recognized and Argus falls back to performing a Google search for whatever it heard.
+
+**How to fix it**
+
+<Steps>
+  <Step title="Use exact command phrases">
+    Say **"open [site]"** for navigation commands. For example:
+    - ✅ "open YouTube"
+    - ✅ "open GitHub"
+    - ❌ "go to YouTube"
+    - ❌ "take me to GitHub"
+  </Step>
+  <Step title="Use the search fallback intentionally">
+    If Argus doesn't recognize a site name, it automatically searches Google for your phrase. You can use this on purpose — just say any phrase that isn't a known command and Argus will search it.
+  </Step>
+</Steps>
+
+<Note>
+  Unrecognized commands always fall back to a Google search, so you won't get an error — you'll just land on a search results page instead of the site you intended.
+</Note>
+</Accordion>
+
+<Accordion title="Argus isn't speaking responses aloud">
+**What's happening**
+
+Argus uses the browser's SpeechSynthesis API to read responses back to you. If your system volume is muted, the browser tab is muted, or your browser doesn't support SpeechSynthesis, you'll see the response text on screen but hear nothing.
+
+**How to fix it**
+
+<Steps>
+  <Step title="Check your system and browser volume">
+    Make sure your system volume is turned up and your browser's tab isn't muted. Right-click the tab in Chrome or Edge and confirm **Mute site** is not active.
+  </Step>
+  <Step title="Confirm you're on a supported browser">
+    SpeechSynthesis is supported in Chrome and Edge on desktop. If you're on Firefox or Safari, spoken responses may be unavailable. Switch to Chrome or Edge for the full experience.
+  </Step>
+  <Step title="Reload the page">
+    Occasionally the SpeechSynthesis voice list takes a moment to load. Reload the Argus tab and try your command again.
+  </Step>
+</Steps>
+</Accordion>
+
+<Accordion title="The mic button does nothing">
+**What's happening**
+
+The mic button triggers the same SpeechRecognition API as the wake word. If microphone permission hasn't been granted, or the browser doesn't support the API, pressing the button produces no visible or audible response.
+
+**How to fix it**
+
+<Steps>
+  <Step title="Grant microphone access">
+    Click the lock or microphone icon in the address bar, set microphone to **Allow**, and reload the page. After reloading, try the mic button again.
+  </Step>
+  <Step title="Switch to Chrome or Edge">
+    The SpeechRecognition API is only available in Chrome and Edge on desktop. If you're using any other browser, the mic button will remain non-functional regardless of permissions.
+  </Step>
+  <Step title="Try the text input instead">
+    If you need to use Argus right now and can't switch browsers, type your command into the text field — it works identically to voice input.
+  </Step>
+</Steps>
+</Accordion>
+
+<Accordion title="Argus stops listening mid-sentence">
+**What's happening**
+
+The browser's SpeechRecognition API fires an `onend` event when it detects a pause or silence. In continuous (wake-word) mode, Argus automatically restarts the listener. In manual mode (mic button tap), the session ends when the recognizer stops. Either way, a brief gap in speech can cause recognition to end before you finish speaking.
+
+**How to fix it**
+
+<Steps>
+  <Step title="Speak continuously without long pauses">
+    Deliver your command in one steady phrase. Long pauses between words can cause the recognizer to treat silence as the end of input.
+  </Step>
+  <Step title="Retry with the wake word or mic button">
+    If recognition cut off mid-command, say "Hey Argus" again or tap the mic button to open a new session, then repeat your command without pausing.
+  </Step>
+</Steps>
+
+<Info>
+  In wake-word mode, Argus restarts the SpeechRecognition listener automatically after each `onend` event, so you don't need to refresh the page — just say "Hey Argus" again.
+</Info>
+</Accordion>
+
+</AccordionGroup>

@@ -1,0 +1,98 @@
+---
+title: "Issue Voice Commands to Argus After Activation"
+sidebarTitle: "Voice Commands"
+description: "How to speak commands to Argus after activation, see real-time transcription, and understand what happens if Argus mishears you."
+---
+
+Voice commands are the fastest, most natural way to interact with Argus. After you activate the agent — either through the wake word or by tapping the mic button — Argus enters listening mode and captures everything you say. Speak your command naturally, watch it transcribed in real time, and hear Argus respond with spoken audio in seconds.
+
+## Activating Voice Input
+
+You have two ways to put Argus into listening mode before issuing a voice command.
+
+<CardGroup cols={2}>
+  <Card title="Say the wake word" icon="microphone-lines">
+    Say **"Hey Argus"** to activate hands-free. The agent starts listening automatically without any button press.
+  </Card>
+  <Card title="Tap the mic button" icon="microphone">
+    Click or tap the **mic button** in the Argus interface to jump directly into listening mode.
+  </Card>
+</CardGroup>
+
+Either method produces the same result: the orb glows **teal** and the status bar reads **"Listening…"**
+
+## Speaking Your Command
+
+<Steps>
+  <Step title="Wait for the teal orb">
+    Before speaking your command, confirm the orb has turned **teal**. This color signals that Argus is actively capturing audio. Speaking before the orb changes color may result in a missed command.
+  </Step>
+  <Step title="Speak clearly and naturally">
+    State your command in plain language — for example, *"Open YouTube"* or *"What time is it?"* You do not need to memorize specific syntax. Argus understands natural phrasing.
+  </Step>
+  <Step title="Watch the live transcription">
+    As you speak, your words appear as **interim transcription text** displayed beneath the orb. This real-time feedback lets you confirm that Argus is hearing you correctly before you finish.
+  </Step>
+  <Step title="Finish speaking">
+    When you stop talking, Argus detects the pause and closes the listening window. The orb shifts from teal to **amber**, indicating the thinking state — Argus is processing your command.
+  </Step>
+  <Step title="Hear the response">
+    Argus delivers its response as **spoken audio** and the orb animates with waveform feedback while it speaks. The orb returns to idle once the response is complete.
+  </Step>
+</Steps>
+
+## Understanding the Orb States
+
+The animated orb gives you continuous visual feedback throughout the voice interaction cycle.
+
+| Orb Color | State | What It Means |
+|---|---|---|
+| **Default / idle** | Idle | Argus is in the background, listening for the wake word |
+| **Teal** | Listening | Argus is capturing your voice command |
+| **Amber** | Thinking | Argus is processing the command |
+| **Teal (animated)** | Responding | Argus is speaking the response |
+
+## Tips for Clear Voice Commands
+
+<CardGroup cols={2}>
+  <Card title="Use short, direct phrases" icon="bolt">
+    Commands like *"Open Spotify"* or *"Search YouTube for lo-fi beats"* work better than long, conversational sentences. The shorter and more direct, the more reliably Argus understands.
+  </Card>
+  <Card title="Skip the filler words" icon="comment-slash">
+    Avoid leading with *"Um,"* *"Uh,"* or *"So…"* These filler words can confuse the speech recognizer and reduce transcription accuracy.
+  </Card>
+  <Card title="Commands are case-insensitive" icon="font">
+    It makes no difference whether you say *"open GITHUB"* or *"Open GitHub"* — Argus treats all commands the same regardless of how they're spoken.
+  </Card>
+  <Card title="Speak at a normal pace" icon="gauge">
+    Avoid speaking too quickly or too slowly. A natural, conversational pace gives the speech recognizer the best chance of an accurate transcription.
+  </Card>
+</CardGroup>
+
+<Tip>
+  If you see the live transcription drifting in an unexpected direction mid-sentence, stop speaking and let Argus time out. Then activate again and try a shorter, more direct phrasing.
+</Tip>
+
+## If Argus Mishears You
+
+Speech recognition is not perfect, and background noise or unclear pronunciation can occasionally produce the wrong transcription. Here's what to do.
+
+<Steps>
+  <Step title="Check the transcription">
+    After the orb returns to idle, glance at the last transcription shown below the orb. If you can see that the wrong words were captured, you'll know a mishear occurred rather than an unrecognized command.
+  </Step>
+  <Step title="Activate again">
+    Tap the **mic button** or say **"Hey Argus"** to open a new listening window.
+  </Step>
+  <Step title="Rephrase if necessary">
+    Try rephrasing your command with simpler vocabulary or slower delivery. For example, if *"Search YouTube for synthwave"* wasn't recognized, try *"YouTube search synthwave."*
+  </Step>
+</Steps>
+
+<Note>
+  If voice recognition consistently fails in your environment, switch to **text input** — it supports every command voice does and is unaffected by background noise or microphone quality. See [Text Commands](/using-argus/text-commands) for details.
+</Note>
+
+<Warning>
+  Voice commands require your browser to support the **Web Speech API** and microphone access must be permitted for the Argus page. If your browser blocks the microphone or does not support the API, voice input will be unavailable.
+</Warning>

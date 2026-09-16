@@ -1,0 +1,84 @@
+---
+title: "How Argus Processes Voice Commands Step by Step"
+sidebarTitle: "How It Works"
+description: "Understand Argus's wake-word loop, real-time speech transcription, command matching, and text-to-speech response pipeline."
+---
+
+Every time you speak to Argus — whether you trigger it with "Hey Argus," tap the mic button, or type a command — your input travels through a consistent pipeline: it is heard, transcribed, understood, acted on, and spoken back to you. Understanding this pipeline helps you use Argus more effectively, set realistic expectations about response time, and troubleshoot when something does not behave as expected.
+
+## The Voice Command Pipeline
+
+<Steps>
+  <Step title="Wake-Word Detection">
+    When the Argus tab is open, it continuously monitors your microphone in the background for the phrase **"Hey Argus"**. This passive listening loop runs at low intensity and does not record or transmit audio — it only watches for the trigger phrase. The orb sits in its **idle** (dim glow) state during this phase.
+
+    <Note>
+      You can skip wake-word detection entirely by clicking the mic button or typing your command directly. The pipeline picks up at Step 2 either way.
+    </Note>
+  </Step>
+  <Step title="Switch to Command-Listening Mode">
+    The moment Argus detects the wake word (or you tap the mic button), it transitions into **command-listening mode**. The orb shifts to a **teal pulse** to signal that it is now actively capturing everything you say. You have a **6-second window** to speak your command — a countdown gives you a visual cue of the remaining time.
+
+    <Tip>
+      Speak your command promptly and clearly after the orb turns teal. If 6 seconds pass with no recognizable input, Argus cancels the session and returns to idle, ready for the next wake word.
+    </Tip>
+  </Step>
+  <Step title="Real-Time Speech Transcription">
+    As you speak, the Web Speech API transcribes your audio into text in real time. **Interim results** — provisional transcriptions that may still change — appear in the interface as you talk, so you can see Argus "hearing" you word by word. When you stop speaking, the API finalizes the transcript and locks in the text that moves to the next step.
+
+    The **waveform canvas** animates throughout this step, reflecting the live amplitude of your audio input. A flat waveform means no audio is being captured; a moving waveform confirms your microphone is active.
+  </Step>
+  <Step title="Command Matching">
+    Argus compares the finalized transcript against its command library. It looks for patterns such as:
+
+    - **"open [url or site name]"** → navigation command
+    - **"search for [query]"** → web search command
+    - **"what time is it"** / **"what's today's date"** → time/date information command
+
+    During this matching phase, the orb switches to an **amber pulse** (thinking state) to show that processing is underway. Command matching is fast — typically under a second — but the amber pulse makes the transition visible so the interface never appears frozen.
+  </Step>
+  <Step title="Execute the Action">
+    Once a match is confirmed, Argus carries out the corresponding action:
+
+    - **Open URL** — launches the target site in a new browser tab.
+    - **Web search** — opens a search results page for your query in a new tab.
+    - **Time or date** — retrieves the information from your device's system clock.
+
+    If the transcript does not match any known command, Argus lets you know it did not understand and prompts you to try again.
+  </Step>
+  <Step title="Spoken Response">
+    Argus converts its reply text into speech using the browser's built-in text-to-speech engine and plays the audio through your system speakers or headphones. The orb settles into a steady **amber glow** (speaking state) for the duration of the response. Once the audio finishes, the orb fades back to its idle dim glow and the wake-word loop resumes automatically.
+  </Step>
+</Steps>
+
+## Orb States at a Glance
+
+The orb is your at-a-glance status indicator. Each state maps directly to a stage in the pipeline described above.
+
+<Note>
+  **Idle — Dim steady glow**
+  Argus is in the background wake-word loop. It is listening passively but not recording your conversations. This is the default resting state.
+</Note>
+
+<Note>
+  **Listening — Teal pulsing ring**
+  Command-listening mode is active. Argus is capturing your voice and transcribing it in real time. Speak your command now.
+</Note>
+
+<Note>
+  **Thinking — Amber pulsing ring**
+  Your command has been transcribed and Argus is matching it against its command library and preparing a response. No action is needed on your part.
+</Note>
+
+<Note>
+  **Speaking — Amber steady glow**
+  Argus is reading its response aloud. The orb returns to idle as soon as the audio playback ends.
+</Note>
+
+## Text Input: The Same Pipeline, Faster
+
+When you type a command instead of speaking it, Argus skips Steps 1–3 (wake word, mic activation, and transcription) and feeds your typed text directly into the command-matching step. The orb still transitions through thinking and speaking states, and the response is still read aloud — so the experience is consistent regardless of how you chose to send your command.
+
+<Info>
+  Text input is especially useful in quiet environments, during calls when you do not want background audio, or on machines where microphone access is restricted.
+</Info>

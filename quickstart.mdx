@@ -1,47 +1,68 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with Argus in Under 2 Minutes"
+sidebarTitle: "Quickstart"
+description: "Learn how to open Argus, grant microphone access, say your first voice command, and get a response — all in under two minutes."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+Argus is a browser-based voice agent that requires no installation and no sign-up — open the page, grant microphone access, and you're ready to issue commands. Within seconds of landing on the Argus page you can open websites, search the web, or check the time just by speaking. This guide walks you through everything from your first page load to your first spoken response.
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+## Steps
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
+  <Step title="Open Argus in a supported browser">
+    Navigate to the Argus URL in **Google Chrome** or **Microsoft Edge**. These browsers provide full support for the Web Speech API that powers Argus. Other Chromium-based browsers may work, but Chrome and Edge are recommended for the most reliable experience.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
-    ```
+  <Step title="Allow microphone access">
+    As soon as the page loads, your browser displays a permission prompt asking whether Argus can use your microphone. Click **Allow**. Without this permission, voice activation is disabled and you can only interact through the text input. You can update this permission at any time from your browser's site settings.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
-    ```
+  <Step title="Wait for the orb to appear">
+    After microphone access is granted, the animated orb appears in the center of the screen. The orb's presence means Argus is initialized and actively listening for its wake word. You don't need to click anything — Argus is already ready.
+  </Step>
+
+  <Step title="Say the wake word">
+    Speak **"Hey Argus"** clearly and at a normal conversational volume. Avoid background noise if possible. The orb will shift to a teal color and begin pulsing to confirm it heard you and is now waiting for your command.
+
+    <Note>
+      After the wake word is detected, you have a **6-second window** to speak your command. If no command is heard within that window, Argus returns to standby and you'll need to say "Hey Argus" again.
+    </Note>
+  </Step>
+
+  <Step title="Say your command">
+    While the orb is teal and pulsing, speak your command naturally. For example, say **"open YouTube"**. Argus processes your speech, acts on the command, and plays a spoken audio response — all within a few seconds.
+  </Step>
+
+  <Step title="Watch Argus respond">
+    Argus performs the action — in this case, opening YouTube in your browser — and speaks a confirmation aloud. The orb animates in sync with the audio response, giving you visual feedback that the command was understood and executed.
+  </Step>
+
+  <Step title="Try the mic button or text input">
+    Prefer not to use the wake word? Tap the **mic button** on the page to jump straight into command-listening mode, bypassing "Hey Argus" entirely. You can also type any command into the text box and press **Send** to get a response without using your voice at all.
+
+    <Tip>
+      In a noisy environment — a café, an open office, or anywhere your microphone picks up significant background sound — use the **text input box** for the most accurate results. Everything you can do by voice, you can do by typing.
+    </Tip>
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## Try These Commands
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+Pick any of the commands below and say them (or type them) right now to see Argus in action.
+
+<CardGroup cols={2}>
+  <Card title="Open a site" icon="arrow-up-right-from-square">
+    - `open youtube`
+    - `open google`
+  </Card>
+  <Card title="Get information" icon="clock">
+    - `time`
+    - `date`
+  </Card>
+  <Card title="Search Google" icon="magnifying-glass">
+    - `search google for weather today`
+  </Card>
+  <Card title="Search YouTube" icon="youtube">
+    - `search youtube for lo-fi music`
+  </Card>
+</CardGroup>

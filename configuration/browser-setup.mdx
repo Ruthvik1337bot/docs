@@ -1,0 +1,64 @@
+---
+title: "Set Up Your Browser to Use Argus Voice Features"
+sidebarTitle: "Browser Setup"
+description: "Configure Chrome or Edge for the best Argus experience. Learn which browsers support voice features and how HTTPS affects microphone access."
+---
+
+Argus relies on the Web Speech API — a browser-native technology that powers both wake-word detection and spoken responses. Because browser vendors have implemented this API at different levels of completeness, your choice of browser directly determines which Argus features you can use. This page explains which browsers work best, how to open Argus correctly, and why a secure HTTPS connection is required.
+
+## Supported Browsers
+
+The table below shows how each major browser handles the two Web Speech API capabilities that Argus depends on: **SpeechRecognition** (listening for your voice and the wake word "Hey Argus") and **SpeechSynthesis** (speaking responses back to you).
+
+| Browser | SpeechRecognition | SpeechSynthesis | Overall Support |
+|---|---|---|---|
+| Google Chrome | ✅ Full | ✅ Full | ⭐ Recommended |
+| Microsoft Edge | ✅ Full | ✅ Full | ⭐ Recommended |
+| Firefox | ⚠️ Partial | ✅ Full | Limited |
+| Safari | ⚠️ Limited | ⚠️ Limited | Not recommended |
+
+<Note>
+Google Chrome provides the most consistent and well-tested experience with Argus. If you have a choice, use Chrome as your primary browser for Argus.
+</Note>
+
+## Open Argus in Chrome or Edge
+
+<Steps>
+  <Step title="Launch your browser">
+    Open Google Chrome or Microsoft Edge. Make sure you are running a recent version — Web Speech API support improves with each release. You can check your version by navigating to `chrome://settings/help` (Chrome) or `edge://settings/help` (Edge).
+  </Step>
+  <Step title="Navigate to the Argus URL">
+    Type or paste the Argus URL into the address bar and press **Enter**. Wait for the page to finish loading completely — the animated orb and waveform should appear before you attempt to speak.
+  </Step>
+  <Step title="Allow microphone access when prompted">
+    The first time you visit, your browser will ask for microphone permission. Click **Allow**. If you miss this prompt or accidentally block it, see the [Microphone Permissions](/configuration/microphone-permissions) guide to re-enable access.
+  </Step>
+  <Step title="Verify the page is active and audible">
+    Confirm the Argus tab is the active, focused tab and that your system volume is turned up. Argus speaks its responses aloud, so you will need audio output enabled as well.
+  </Step>
+</Steps>
+
+## Keep the Argus Tab Active
+
+<Warning>
+**Avoid backgrounding or minimizing the Argus tab.** Chrome and Edge throttle JavaScript timers and media processing in background tabs to conserve resources. If the Argus tab loses focus for an extended period, continuous wake-word listening ("Hey Argus") may pause or become unreliable. Keep the Argus tab visible and in the foreground for the best experience.
+</Warning>
+
+If you need to multitask, consider opening Argus in a separate, dedicated browser window rather than switching to a different tab in the same window. A window that is visible — even partially — is less likely to be aggressively throttled than a hidden background tab.
+
+## HTTPS Is Required
+
+The Web Speech API will only activate in a **secure context** — a page served over HTTPS. This is a browser security requirement, not an Argus limitation.
+
+- The hosted Argus application is always served over HTTPS, so no action is needed when using the standard URL.
+- If you are a developer running Argus locally over plain `http://`, voice features will be unavailable. Use a local HTTPS setup (such as a self-signed certificate with `localhost`) or the hosted version instead.
+
+<Tip>
+You can confirm a page is running in a secure context by checking for the padlock icon to the left of the URL in your browser's address bar. If you see a warning or "Not secure" label, voice features will not work.
+</Tip>
+
+## Firefox and Safari Notes
+
+Firefox includes experimental SpeechRecognition support that must be enabled via feature flags, and it may not work in all configurations. The wake word ("Hey Argus") is particularly dependent on a stable, continuous SpeechRecognition stream, so Firefox users may find that automatic listening starts inconsistently.
+
+Safari on macOS and iOS has limited Web Speech API support and does not reliably implement SpeechRecognition. Voice input and wake-word detection are likely to be non-functional in Safari. Use the text input field as an alternative, or switch to Chrome or Edge for the full experience.

@@ -1,0 +1,86 @@
+---
+title: "Argus Built-In Commands Reference"
+sidebarTitle: "Built-In Commands"
+description: "Complete reference for all commands Argus understands: open apps, search Google or YouTube, get the time or date, and the default search fallback."
+---
+
+Argus comes with a set of built-in commands that cover the most common tasks you'd want a voice agent to handle: launching websites, running web searches, and fetching real-time information like the current time and date. Every command on this page works identically whether you speak it or type it into the text input box.
+
+<Note>
+  All commands are **case-insensitive**. "Open YouTube," "open youtube," and "OPEN YOUTUBE" are treated identically by Argus.
+</Note>
+
+## Opening Websites
+
+Use these commands to open popular websites instantly in a new browser tab. You don't need to navigate away from Argus — the site opens alongside it.
+
+| Command | What Happens |
+|---|---|
+| `open youtube` | Opens [youtube.com](https://youtube.com) in a new tab |
+| `open google` | Opens [google.com](https://google.com) in a new tab |
+| `open spotify` | Opens [open.spotify.com](https://open.spotify.com) in a new tab |
+| `open github` | Opens [github.com](https://github.com) in a new tab |
+
+<Tip>
+  You can say these commands naturally — *"Hey Argus, open Spotify"* — or type them directly. Either approach opens the site in a new tab without closing Argus.
+</Tip>
+
+## Searching the Web
+
+Ask Argus to run a search and it will open the results page in a new tab. Replace `[query]` with whatever you want to search for.
+
+| Command | What Happens |
+|---|---|
+| `search google for [query]` | Opens a Google search results page for `[query]` |
+| `search youtube for [query]` | Opens a YouTube search results page for `[query]` |
+
+**Examples:**
+
+- *"Search Google for best mechanical keyboards"* → Opens `google.com/search?q=best+mechanical+keyboards`
+- *"Search YouTube for lo-fi study music"* → Opens `youtube.com/results?search_query=lo-fi+study+music`
+
+<Info>
+  Speak or type the query naturally after "for." Argus captures everything that follows as the search term, so you can include multiple words without any special formatting.
+</Info>
+
+## Getting Information
+
+These commands retrieve real-time information and have Argus read it back to you. The response is spoken aloud and also displayed beneath the orb.
+
+| Command | What Happens |
+|---|---|
+| `time` | Speaks and displays the current local time |
+| `date` | Speaks and displays today's full date |
+
+The time and date are pulled from your device's local clock, so the response always reflects your current timezone.
+
+## Default / Fallback Behavior
+
+Not every request fits neatly into the commands above — and that's fine. Any phrase Argus doesn't recognize as a specific built-in command is automatically treated as a **Google search query** and opens the corresponding results page in a new tab.
+
+**Examples of fallback behavior:**
+
+- *"best pizza near me"* → Opens `google.com/search?q=best+pizza+near+me`
+- *"how to center a div in CSS"* → Opens `google.com/search?q=how+to+center+a+div+in+CSS`
+- *"weather tomorrow"* → Opens `google.com/search?q=weather+tomorrow`
+
+<Tip>
+  The fallback search means you never hit a dead end with Argus. If you're not sure whether a specific command exists, just say or type what you want — the worst outcome is a helpful Google search.
+</Tip>
+
+## Quick-Reference Summary
+
+<CardGroup cols={2}>
+  <Card title="Open a website" icon="arrow-up-right-from-square">
+    `open youtube` · `open google` · `open spotify` · `open github`
+  </Card>
+  <Card title="Search the web" icon="magnifying-glass">
+    `search google for [query]` · `search youtube for [query]`
+  </Card>
+  <Card title="Get info" icon="circle-info">
+    `time` · `date`
+  </Card>
+  <Card title="Anything else" icon="wand-magic-sparkles">
+    Any unrecognized phrase triggers a Google search automatically.
+  </Card>
+</CardGroup>

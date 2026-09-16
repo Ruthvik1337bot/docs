@@ -1,0 +1,72 @@
+---
+title: "Control Argus by Typing Text Commands"
+sidebarTitle: "Text Commands"
+description: "Use Argus's text input box to send commands without a microphone. Supports all the same commands as voice — just type and press Send."
+---
+
+Text input gives you the full power of Argus without saying a word. Whether your microphone is unavailable, your browser doesn't support the Web Speech API, or you're simply in a place where speaking isn't practical, the text input box at the bottom of the interface lets you send any command Argus understands — no wake word, no mic button, no voice required.
+
+## Finding the Text Input
+
+The text input box sits at the **bottom of the Argus interface**, always visible and ready. You'll see a text field alongside a **Send** button. There is no mode to enable or toggle — you can type at any time, even while Argus is idle.
+
+## Sending a Text Command
+
+<Steps>
+  <Step title="Click the text input box">
+    Click or tap inside the text field at the bottom of the interface to focus it. Your cursor appears and the field is ready for input.
+  </Step>
+  <Step title="Type your command">
+    Enter any command Argus understands — for example, `open github`, `time`, or `search google for typescript tutorials`. Text commands follow the same syntax as voice, so no special formatting is needed.
+  </Step>
+  <Step title="Submit the command">
+    Press **Enter** on your keyboard or click the **Send** button. Argus immediately picks up the command and begins processing it.
+  </Step>
+  <Step title="Watch the orb and hear the response">
+    The orb briefly enters the **amber thinking state** while Argus processes your input, then speaks the response aloud. Even for text commands, Argus always responds with spoken audio.
+  </Step>
+</Steps>
+
+<Note>
+  You do not need to use the wake word or tap the mic button before typing. The text input box works independently of the voice activation flow at all times.
+</Note>
+
+## When to Use Text Input
+
+Text input is the right choice in a variety of situations where voice isn't ideal.
+
+<CardGroup cols={2}>
+  <Card title="Noisy environments" icon="volume-high">
+    Cafés, offices, public transport — anywhere background noise would interfere with speech recognition. Type your command instead and get the same result.
+  </Card>
+  <Card title="No microphone available" icon="microphone-slash">
+    If your device doesn't have a microphone, or if the mic is in use by another application, text input keeps Argus fully functional.
+  </Card>
+  <Card title="Unsupported browser" icon="browser">
+    If your browser doesn't support the Web Speech API, voice commands won't work — but text input will. All commands remain accessible.
+  </Card>
+  <Card title="Situations where speaking isn't appropriate" icon="comment-slash">
+    Libraries, meetings, or any setting where you'd rather not speak aloud. Text input lets you interact silently.
+  </Card>
+</CardGroup>
+
+## Text vs. Voice: What's the Difference?
+
+Text commands and voice commands share the same underlying command engine, so everything you can do by speaking you can also do by typing.
+
+| Feature | Voice Commands | Text Commands |
+|---|---|---|
+| Requires microphone | Yes | No |
+| Wake word needed | Optional | No |
+| Supports all built-in commands | Yes | Yes |
+| Real-time transcription feedback | Yes | N/A |
+| Argus speaks the response | Yes | Yes |
+| Works in all browsers | Web Speech API required | Yes |
+
+<Tip>
+  Text input is a great fallback if you're troubleshooting voice recognition issues. If a command works via text but not voice, the problem is likely with your microphone or browser's speech API permissions rather than with the command itself.
+</Tip>
+
+<Info>
+  For a full list of every command Argus understands — for both voice and text — see the [Built-In Commands Reference](/using-argus/built-in-commands).
+</Info>

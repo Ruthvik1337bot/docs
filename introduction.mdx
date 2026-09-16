@@ -1,0 +1,68 @@
+---
+title: "Argus: Hands-Free Desktop Voice Agent for Your Browser"
+sidebarTitle: "Introduction"
+description: "Argus is a browser-based desktop voice agent. Control your computer hands-free with voice commands, a mic button, or text — no installation needed."
+---
+
+Argus is a desktop voice agent that lives entirely in your browser. Say "Hey Argus," tap the mic button, or type a command — and Argus opens websites, searches the web, tells you the time, and more, all without you touching a keyboard or leaving your current task. Because it runs on the Web Speech API, there is nothing to download or configure: open the page, grant microphone access, and you are ready to go.
+
+## Three Ways to Talk to Argus
+
+Argus meets you wherever you are. Use the mode that fits your moment — whether your hands are full, your headset is on, or you simply prefer typing.
+
+<CardGroup cols={3}>
+  <Card title="Wake Word" icon="microphone-lines">
+    Say **"Hey Argus"** at any time. Argus listens continuously in the background and springs into command mode the instant it hears you — no clicks required.
+  </Card>
+  <Card title="Mic Button" icon="circle-dot">
+    Click the microphone button in the interface to activate command-listening mode immediately. Ideal when you want precise control over exactly when Argus starts capturing your voice.
+  </Card>
+  <Card title="Text Input" icon="keyboard">
+    Type your command directly into the text field and press **Enter**. Argus processes typed commands through the same pipeline as spoken ones — you get the same responses and spoken replies.
+  </Card>
+</CardGroup>
+
+## Visual Feedback: The Orb and Waveform
+
+Argus never leaves you guessing about what it is doing. The animated orb at the center of the interface changes color and behavior to reflect each stage of the interaction, while the waveform canvas gives you real-time feedback on your audio input.
+
+### Orb States
+
+| State | Appearance | What It Means |
+|---|---|---|
+| **Idle** | Dim, steady glow | Argus is awake and listening passively for the wake word. |
+| **Listening** | Teal pulsing ring | Argus is actively capturing your voice command. |
+| **Thinking** | Amber pulsing ring | Argus has received your command and is processing it. |
+| **Speaking** | Amber steady glow | Argus is delivering its spoken response. |
+
+### Audio Waveform
+
+While you speak, a waveform canvas renders your live audio input in real time. The animation confirms that your microphone is picking up sound, so you can adjust your volume or position before you finish speaking.
+
+<Tip>
+  Watch the waveform when you first use Argus. If it stays flat while you are talking, your browser may not have microphone permission yet — check the address bar for a blocked-mic icon and allow access.
+</Tip>
+
+## What Argus Can Do
+
+Argus handles the tasks that interrupt your flow most often:
+
+- **Open websites** — say or type "open youtube.com" and Argus navigates there in a new tab.
+- **Search the web** — say "search for best mechanical keyboards" and Argus runs a web search on your behalf.
+- **Get the current time or date** — ask "what time is it?" or "what's today's date?" and Argus reads the answer aloud.
+
+<Info>
+  Argus is actively expanding its command library. New capabilities — such as setting reminders, controlling media, and querying weather — are planned for upcoming releases.
+</Info>
+
+## No Installation Required
+
+Argus runs entirely inside your browser using the **Web Speech API**, a standard feature built into modern desktop browsers. There is no extension to install, no account to create, and no app to update.
+
+<Note>
+  **Recommended browsers:** Google Chrome and Microsoft Edge offer the most complete Web Speech API support and deliver the best Argus experience. Firefox and Safari have partial support and may not support wake-word detection or real-time transcription.
+</Note>
+
+<Warning>
+  Argus requires microphone access to function. If your browser is blocked from using the microphone — by a system permission, a browser setting, or a browser extension — wake-word detection and voice input will be unavailable. Text input will still work.
+</Warning>

@@ -1,0 +1,66 @@
+---
+title: "Improve Speech Recognition Accuracy in Argus"
+sidebarTitle: "Speech Recognition"
+description: "Tips to improve Argus voice recognition: reduce background noise, speak clearly, understand interim results, and optimize microphone setup."
+---
+
+Speech recognition accuracy in Argus depends on factors both inside and outside the browser: the quality of your microphone, the noise level in your environment, your speaking pace, and how closely your speech matches the en-US acoustic model built into the Web Speech API. Understanding these factors — and making a few small adjustments — can dramatically improve how reliably Argus understands you.
+
+## Why recognition accuracy varies
+
+The Web Speech API processes your audio locally in the browser (or, in Chrome's case, via Google's speech servers). Several factors affect how well it transcribes what you say:
+
+- **Background noise** — fans, music, conversations, and keyboard sounds all compete with your voice signal.
+- **Microphone quality** — a laptop's built-in mic picks up far more room noise than a headset or desk microphone placed close to your mouth.
+- **Speaking pace** — speaking too fast merges words; speaking too slowly can cause the recognizer to treat pauses as the end of input.
+- **Accent and pronunciation** — the en-US language model is optimized for standard American English; other accents and dialects may produce less accurate transcriptions.
+
+## Tips for better recognition
+
+<Tip>
+  **Speak clearly and at a moderate pace.** Articulate each word fully, especially command keywords like "open," "search," and "Argus." Rushing through the wake word is the most common cause of missed activations.
+</Tip>
+
+<Tip>
+  **Reduce background noise.** Close windows, turn off music or TV, and move away from loud appliances before using Argus. Even moderate ambient noise can push word error rates up significantly.
+</Tip>
+
+<Tip>
+  **Use a dedicated microphone.** A USB headset, clip-on lapel mic, or desktop cardioid microphone placed 15–30 cm from your mouth will outperform a laptop's built-in mic in almost every environment. If your laptop mic is picking up keyboard noise, a headset eliminates most of it.
+</Tip>
+
+<Tip>
+  **Say "Hey Argus" as two distinct words.** Don't rush the wake phrase — say *Hey* (brief pause) *Argus*, giving the recognizer time to register both words separately. Blending them into a single rushed sound is a common cause of missed wake-word detection.
+</Tip>
+
+<Tip>
+  **Keep the Argus tab in the foreground.** The Web Speech API pauses recognition in background tabs in some browsers. If you switch to another window and come back, say the wake word again to confirm the listener is active.
+</Tip>
+
+## Understanding interim results
+
+As you speak, Argus displays a partial transcription of what the recognizer has heard so far. This is called an **interim result** — it updates in real time and is not the final recognized text. Interim results are useful for spotting recognition errors early:
+
+- If the interim text looks wrong while you're still speaking, **stop and start over** rather than continuing — the final result will compound the error.
+- Interim results sometimes flip between words as the recognizer re-evaluates probabilities. Wait until you see the final transcription settle before judging accuracy.
+- Short commands (two or three words) produce more reliable interim results than longer sentences, because there are fewer words for the model to re-score.
+
+## If recognition never starts
+
+If you tap the mic button or say the wake word and nothing happens — no waveform animation, no interim text — work through these checks:
+
+<Steps>
+  <Step title="Confirm the tab is in the foreground">
+    Bring the Argus tab to the front of your browser. The SpeechRecognition API does not run reliably in background or minimized tabs.
+  </Step>
+  <Step title="Verify microphone permission">
+    Look for the microphone icon in your browser's address bar. If it shows a blocked symbol, click it, set microphone to **Allow**, and reload the page.
+  </Step>
+  <Step title="Check for competing microphone use">
+    Other apps (video conferencing tools, recording software, OS voice assistants) can hold an exclusive lock on your microphone. Close them and try again.
+  </Step>
+</Steps>
+
+<Note>
+  Argus is configured with a language code of **en-US**. If you speak British, Australian, or another variety of English, you may notice lower accuracy on certain words — particularly place names, brand names, and words with spelling differences (e.g., "colour" vs "color"). Speak in a clear, measured pace and use the text input field when recognition repeatedly misidentifies a specific word.
+</Note>

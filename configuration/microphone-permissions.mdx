@@ -1,0 +1,119 @@
+---
+title: "Grant Microphone Access to Argus in Your Browser"
+sidebarTitle: "Microphone Permissions"
+description: "Step-by-step guide to granting and restoring microphone permissions for Argus in Chrome and Edge on macOS and Windows."
+---
+
+Argus needs access to your microphone to hear the wake word "Hey Argus", process spoken commands, and respond to your voice. Permission is requested once by your browser and then remembered for the Argus site. If you accidentally deny access — or want to switch from text-only mode back to voice — this guide walks you through every step for both browsers and both major operating systems.
+
+<Warning>
+**If you deny microphone access, Argus falls back to text-only mode.** You can still type commands into the text input field and receive spoken responses, but wake-word detection and voice input will be unavailable until you re-enable microphone permissions and reload the page.
+</Warning>
+
+## Grant Access on First Visit
+
+When you open Argus for the first time, your browser displays a permission prompt near the top of the window asking whether to allow the site to use your microphone.
+
+<Steps>
+  <Step title="Look for the permission prompt">
+    A dialog or banner appears at the top of the browser window as soon as Argus attempts to start listening. Do not dismiss it until you have read it.
+  </Step>
+  <Step title="Click Allow">
+    Click **Allow** (Chrome) or **Allow** (Edge) to grant microphone access. Argus will immediately begin listening for the wake word and the animated orb will become active.
+  </Step>
+  <Step title="Confirm the microphone indicator">
+    A microphone icon appears in the browser address bar while Argus is actively listening. This confirms permission was granted successfully.
+  </Step>
+</Steps>
+
+## Re-Enable Microphone Access in the Browser
+
+If you previously blocked microphone access, follow the steps for your browser below.
+
+<Tabs>
+  <Tab title="Google Chrome">
+    <Steps>
+      <Step title="Open Site Settings">
+        Click the **padlock icon** (or the tune icon) to the left of the URL in the address bar while you have the Argus tab open.
+      </Step>
+      <Step title="Navigate to Site Settings">
+        Select **Site settings** from the dropdown menu. A new Settings tab opens showing permissions for the Argus URL.
+      </Step>
+      <Step title="Change the Microphone permission">
+        Find the **Microphone** row. If it shows **Blocked**, click the dropdown next to it and select **Allow**.
+      </Step>
+      <Step title="Reload the page">
+        Close the Settings tab and return to Argus. Press **F5** or click the reload button. Argus will request microphone access again and begin listening once you click **Allow** on the new prompt.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Microsoft Edge">
+    <Steps>
+      <Step title="Open Site Permissions">
+        Click the **padlock icon** to the left of the URL in the address bar while the Argus tab is active.
+      </Step>
+      <Step title="Access permissions for the site">
+        Select **Permissions for this site** from the dropdown. A Settings panel opens for the Argus URL.
+      </Step>
+      <Step title="Change the Microphone permission">
+        Locate the **Microphone** entry. If the dropdown reads **Block**, change it to **Allow**.
+      </Step>
+      <Step title="Reload the page">
+        Return to the Argus tab and reload the page with **F5** or the reload button. Click **Allow** when the permission prompt reappears.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Grant OS-Level Microphone Access
+
+Even when the browser has permission, your operating system controls whether any application — including the browser — can access the microphone. If the browser permission is set to **Allow** but Argus still cannot hear you, check your OS settings.
+
+<Tabs>
+  <Tab title="macOS">
+    <Steps>
+      <Step title="Open System Settings">
+        Click the **Apple menu** in the top-left corner and choose **System Settings** (macOS Ventura and later) or **System Preferences** (macOS Monterey and earlier).
+      </Step>
+      <Step title="Go to Privacy & Security → Microphone">
+        In System Settings, select **Privacy & Security** from the sidebar, then click **Microphone**.
+      </Step>
+      <Step title="Enable access for your browser">
+        Find **Google Chrome** or **Microsoft Edge** in the list and toggle the switch to the **on** (green) position. If your browser is not listed, you may need to open it and attempt to use the microphone first so that macOS registers the request.
+      </Step>
+      <Step title="Restart the browser">
+        Quit and relaunch Chrome or Edge to apply the change, then reload the Argus page.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Windows">
+    <Steps>
+      <Step title="Open Windows Settings">
+        Press **Windows + I** to open Settings, or search for **Settings** in the Start menu.
+      </Step>
+      <Step title="Navigate to Privacy & Security → Microphone">
+        Select **Privacy & Security** from the left sidebar, then click **Microphone** under the App permissions section.
+      </Step>
+      <Step title="Allow desktop apps to use the microphone">
+        Ensure **Microphone access** is toggled **On** at the top. Then scroll down to **Let desktop apps access your microphone** and toggle it **On** as well.
+      </Step>
+      <Step title="Confirm your browser is not individually blocked">
+        If you see individual app entries for Chrome or Edge, make sure their toggles are also set to **On**.
+      </Step>
+      <Step title="Reload Argus">
+        Return to your browser and reload the Argus page. The permission prompt will reappear; click **Allow**.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Tips for Better Voice Recognition
+
+<Tip>
+**Use a quality microphone.** The built-in microphone on most laptops picks up keyboard noise, fan noise, and room echo. A USB condenser microphone or a headset with a close-range mic significantly improves the accuracy of Web Speech API recognition, especially for multi-word commands and proper nouns like website names.
+</Tip>
+
+- Speak at a normal conversational pace — do not slow down or exaggerate pronunciation.
+- Reduce background noise when possible; Argus does not apply noise cancellation itself.
+- Position the microphone 15–30 cm (6–12 inches) from your mouth for optimal pickup.
+- If Argus misunderstands a command, try typing it instead — both modes produce the same result.

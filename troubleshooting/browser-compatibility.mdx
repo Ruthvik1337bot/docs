@@ -1,0 +1,76 @@
+---
+title: "Argus Browser Compatibility and Web Speech API Support"
+sidebarTitle: "Browser Compatibility"
+description: "Check which browsers support Argus voice features. Chrome and Edge are fully supported. Firefox and Safari have limited or no Web Speech API support."
+---
+
+Argus relies on two browser APIs — `SpeechRecognition` for listening and `SpeechSynthesis` for speaking — that are part of the Web Speech API standard. Support for these APIs varies significantly across browsers. Before troubleshooting a voice issue, confirm that your browser actually supports the features Argus depends on.
+
+## Supported browsers
+
+| Browser | Platform | SpeechRecognition | SpeechSynthesis | Argus voice features |
+|---|---|---|---|---|
+| **Chrome** | Desktop | ✅ Full support | ✅ Full support | ✅ Fully supported |
+| **Edge** | Desktop | ✅ Full support | ✅ Full support | ✅ Fully supported |
+| **Firefox** | Desktop | ❌ Not enabled by default | ✅ Supported | ⚠️ Voice input unavailable |
+| **Safari** | Desktop | ❌ Not supported | ⚠️ Partial support | ❌ Voice features unavailable |
+| **Chrome** | Mobile | ⚠️ Inconsistent | ✅ Supported | ⚠️ Unreliable |
+| **Safari** | iOS | ❌ Not supported | ⚠️ Partial support | ❌ Voice features unavailable |
+| **Other mobile** | Mobile | ❌ Generally unsupported | ⚠️ Varies | ❌ Voice features unavailable |
+
+<Warning>
+  If you are using Firefox, Safari, or any mobile browser, Argus's wake word detection, mic button, and spoken responses may not work or may work unreliably. Switch to **Chrome** or **Edge** on a desktop computer for the full experience.
+</Warning>
+
+## HTTPS requirement
+
+The `SpeechRecognition` API requires a **secure context** — meaning the page must be served over HTTPS, not HTTP. If you're accessing Argus over a plain HTTP connection, the browser will silently block microphone access and the SpeechRecognition API will be unavailable, even in Chrome or Edge.
+
+Check your address bar: the URL should begin with `https://`. If it shows `http://` or a "Not Secure" warning, contact your network administrator or access Argus through the correct HTTPS address.
+
+## How to check your browser's support
+
+You can verify whether your browser supports SpeechRecognition in under ten seconds using the browser's built-in developer console.
+
+<Steps>
+  <Step title="Open DevTools">
+    Press `F12` (Windows/Linux) or `Cmd + Option + I` (macOS) to open your browser's developer tools, then click the **Console** tab.
+  </Step>
+  <Step title="Run the compatibility check">
+    Paste the following expression into the console and press **Enter**:
+
+    ```js
+    !!window.SpeechRecognition || !!window.webkitSpeechRecognition
+    ```
+  </Step>
+  <Step title="Read the result">
+    - **`true`** — your browser supports SpeechRecognition and Argus voice features should work.
+    - **`false`** — your browser does not support SpeechRecognition. Switch to Chrome or Edge on desktop.
+  </Step>
+</Steps>
+
+You can run a similar check for SpeechSynthesis (spoken responses):
+
+```js
+!!window.speechSynthesis
+```
+
+A result of `true` means Argus can speak responses aloud in your browser.
+
+## Firefox notes
+
+Firefox ships with SpeechRecognition code in the engine, but it is disabled by default and requires manual activation via `about:config`. Even when enabled, compatibility with the exact API shape Argus uses is not guaranteed. **The supported path for Firefox users is to switch to Chrome or Edge.**
+
+## Safari notes
+
+Safari on macOS and iOS supports a subset of `SpeechSynthesis` (voice output) but does not implement `SpeechRecognition` at all. This means Argus can display text responses in Safari, but the wake word, mic button, and all voice input features are completely non-functional.
+
+## Mobile browsers
+
+Mobile browsers — including Chrome for Android and all iOS browsers — have inconsistent or absent SpeechRecognition support. iOS browsers are additionally constrained by the WebKit engine requirement imposed by Apple, which means even Chrome on iOS lacks the SpeechRecognition API. **Use a desktop browser for reliable Argus operation.**
+
+## Text input fallback
+
+<Note>
+  The text input field in Argus works in **every browser**, including Firefox, Safari, and mobile browsers. If voice features are unavailable in your browser, you can still use all of Argus's commands — opening websites, searching the web, checking the time and date — by typing them into the text field and pressing **Enter**. No microphone or browser upgrade required.
+</Note>

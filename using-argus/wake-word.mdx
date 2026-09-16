@@ -1,0 +1,72 @@
+---
+title: "Activate Argus Hands-Free with the Wake Word"
+sidebarTitle: "Wake Word"
+description: "Learn how to use the 'Hey Argus' wake word to activate the agent hands-free and trigger the command-listening window."
+---
+
+The wake word gives you a completely hands-free way to activate Argus. Once the page is open, Argus listens quietly in the background at all times — no button press required. Simply say **"Hey Argus"** and the agent wakes up instantly, ready to receive your next command.
+
+## How the Wake Word Works
+
+As soon as you open Argus in your browser, it begins passively monitoring your microphone for the wake phrase. This background listening is lightweight and does not interfere with other audio on your device. The moment Argus detects the wake word, it shifts into active listening mode and waits for your command.
+
+<Steps>
+  <Step title="Argus listens in the background">
+    When the page loads, Argus starts background listening automatically. The orb rests in its idle state — no action is needed from you.
+  </Step>
+  <Step title="Say 'Hey Argus'">
+    Speak the phrase **"Hey Argus"** clearly toward your microphone. The phrase is case-insensitive, so "hey argus" works just as well.
+  </Step>
+  <Step title="Argus enters listening mode">
+    The orb turns **teal** and the status indicator changes to **"Listening…"** — Argus is now waiting for your command.
+  </Step>
+  <Step title="Speak your command">
+    You have a **6-second window** to say your command. Argus captures everything you say during this window and processes it once you stop speaking.
+  </Step>
+  <Step title="Argus responds">
+    Argus processes your command, speaks the response aloud, and the orb returns to its idle state, ready for the next wake word.
+  </Step>
+</Steps>
+
+## The 6-Second Command Window
+
+After detecting "Hey Argus," the agent opens a **6-second listening window** for your command. If Argus does not detect any speech within that window, it automatically cancels the session and returns to idle.
+
+<Note>
+  If Argus times out without catching a command, you'll see the message **"Didn't catch a command"** below the orb. Simply say "Hey Argus" again to start a new session.
+</Note>
+
+## Wake Word vs. Text Input
+
+The wake word is a **voice-only** feature. It has no effect when you are using the text input box at the bottom of the interface. To activate Argus without speaking, use the mic button or type your command directly into the text field.
+
+<Info>
+  If you prefer not to use the wake word, you can tap the **mic button** at any time to jump straight into the listening window — no wake phrase required.
+</Info>
+
+## Tips for Reliable Detection
+
+Getting consistent wake-word recognition is mostly about environment and delivery. Keep these guidelines in mind for the best experience.
+
+<CardGroup cols={2}>
+  <Card title="Say the full phrase" icon="microphone">
+    Always say **"Hey Argus"** in full. Shortened versions like "Argus" or "Hey" alone will not trigger activation.
+  </Card>
+  <Card title="Speak clearly and at a normal pace" icon="waveform">
+    Enunciate both words at a comfortable, natural pace. Rushing or mumbling reduces detection accuracy.
+  </Card>
+  <Card title="Minimize background noise" icon="volume-xmark">
+    Argus performs best in quiet environments. Loud music, TV audio, or crowded rooms can interfere with wake-word detection.
+  </Card>
+  <Card title="Stay close to your microphone" icon="circle-dot">
+    Position yourself within a normal speaking distance of your device's microphone — roughly arm's length or closer.
+  </Card>
+</CardGroup>
+
+<Tip>
+  If the wake word stops responding, try refreshing the page to reset the background listener. Make sure your browser has microphone permission enabled for the Argus page.
+</Tip>
+
+<Warning>
+  Wake-word detection relies on the **Web Speech API**, which is supported in most modern Chromium-based browsers (Chrome, Edge, Arc). If your browser does not support the Web Speech API, the wake word will not function. Use the mic button or text input instead.
+</Warning>

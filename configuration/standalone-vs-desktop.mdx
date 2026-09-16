@@ -1,0 +1,72 @@
+---
+title: "Standalone Browser vs Desktop Agent Mode in Argus"
+sidebarTitle: "Standalone vs Desktop"
+description: "Learn the difference between Argus's standalone browser mode and the upcoming desktop agent mode, and what each mode can and cannot do."
+---
+
+Argus is designed to grow beyond the browser. Today it runs entirely as a browser-based agent — no installation required, just open the page and start talking. In a future release, a desktop companion app will unlock deeper integration with your operating system, letting Argus launch native apps, read system information, and interact with your computer at a level that no browser tab can reach. Understanding which mode you are in helps you set the right expectations for what Argus can and cannot do.
+
+## How to Tell Which Mode Is Active
+
+Look at the top-right corner of the Argus interface. An **environment tag** displays the active mode — either **standalone browser mode** or the desktop agent identifier. The page header also shows "standalone browser mode" as a plain text label when you are running in the current default configuration.
+
+<Info>
+**Desktop Agent Mode is coming soon.** The desktop app that enables OS-level integration is currently in development. When it is available, you will be able to download and install it separately, and Argus will automatically detect the local agent and switch modes. Until then, all users are in Standalone Browser Mode.
+</Info>
+
+## Mode Comparison
+
+<CardGroup cols={2}>
+  <Card title="Standalone Browser Mode" icon="browser">
+    **Available now — no install required**
+
+    Argus runs entirely inside your browser tab using the Web Speech API and standard web technologies. All commands are scoped to what a browser page can do.
+
+    **What you can do:**
+    - Open websites and web apps by URL
+    - Search the web (Google, and other engines)
+    - Ask for the current time and date
+    - Get weather, quick facts, and general information
+    - Use wake word ("Hey Argus"), mic button, or text input
+
+    **Limitations:**
+    - Cannot launch native desktop applications
+    - Cannot read or write local files
+    - Cannot access system information (CPU, RAM, running processes)
+    - "Open Spotify" opens the **Spotify web player**, not the desktop app
+  </Card>
+  <Card title="Desktop Agent Mode" icon="desktop" color="#6366f1">
+    **Coming soon — requires the Argus desktop app**
+
+    The Argus desktop app runs a local agent on your machine. When active, the browser interface connects to this agent and gains access to operating system APIs that are off-limits to ordinary web pages.
+
+    **What you will be able to do:**
+    - Launch native applications by name (e.g., "open Spotify" opens the real desktop app)
+    - Read system information: battery, CPU usage, active windows
+    - Control system-level settings
+    - Access local files and folders (with your permission)
+    - All existing Standalone Browser Mode capabilities
+
+    **Requirements:**
+    - Argus desktop app installed and running
+    - Agent must be active for the browser interface to detect it
+  </Card>
+</CardGroup>
+
+## The "Open Spotify" Example
+
+This is the clearest practical illustration of the difference between the two modes. In Standalone Browser Mode, when you say or type "open Spotify", Argus resolves the command to a URL and navigates to [open.spotify.com](https://open.spotify.com) — the web player. Your locally installed Spotify desktop app remains untouched.
+
+In Desktop Agent Mode, the same command will instruct the local agent to launch the native Spotify application on your operating system, exactly as if you had double-clicked its icon.
+
+| Command | Standalone Browser Mode | Desktop Agent Mode |
+|---|---|---|
+| "Open Spotify" | Opens Spotify Web Player in browser | Launches the Spotify desktop app |
+| "Open YouTube" | Navigates to youtube.com | Navigates to youtube.com |
+| "What time is it?" | Speaks the current time | Speaks the current time |
+| "Open my Downloads folder" | Not supported | Opens the Downloads folder in Finder / Explorer |
+| "What's my battery level?" | Not supported | Reads and speaks current battery percentage |
+
+## Switching to Desktop Agent Mode (When Available)
+
+When the Argus desktop app is released, switching modes will require only two steps: install the desktop app and run it in the background. The Argus browser interface will detect the local agent automatically and the environment tag in the top-right corner will update to reflect the new mode. No additional configuration will be needed for features that were already working in Standalone Browser Mode.

@@ -1,0 +1,75 @@
+{
+  "projectType": "saas",
+  "projectName": "Argus",
+  "projectDescription": "Argus is a desktop voice agent that lets you control your computer and browse the web hands-free using a wake word, microphone, or text commands.",
+  "theme": "luma",
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "how-it-works"
+            ]
+          },
+          {
+            "group": "Using Argus",
+            "pages": [
+              "using-argus/wake-word",
+              "using-argus/voice-commands",
+              "using-argus/text-commands",
+              "using-argus/built-in-commands"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "configuration/browser-setup",
+              "configuration/microphone-permissions",
+              "configuration/standalone-vs-desktop"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/common-issues",
+              "troubleshooting/speech-recognition",
+              "troubleshooting/browser-compatibility"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Wake-word activation with 'Hey Argus'",
+    "Voice command input via microphone",
+    "Text command input fallback",
+    "Open websites and apps by voice",
+    "Google and YouTube search by voice",
+    "Real-time speech-to-text with interim results",
+    "Text-to-speech response playback",
+    "Visual audio waveform and orb state feedback",
+    "Standalone browser mode — no install required"
+  ],
+  "publicApiSurface": [
+    "Wake word: 'Hey Argus'",
+    "Mic button: tap to speak",
+    "Text form: type and send commands",
+    "Command: 'open youtube'",
+    "Command: 'open google'",
+    "Command: 'open spotify'",
+    "Command: 'open github'",
+    "Command: 'time'",
+    "Command: 'date'",
+    "Command: 'search google for <query>'",
+    "Command: 'search youtube for <query>'"
+  ]
+}
