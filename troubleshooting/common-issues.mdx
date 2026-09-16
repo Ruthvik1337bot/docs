@@ -117,7 +117,7 @@ The mic button triggers the same SpeechRecognition API as the wake word. If micr
 <Accordion title="Argus stops listening mid-sentence">
 **What's happening**
 
-The browser's SpeechRecognition API fires an `onend` event when it detects a pause or silence. In continuous (wake-word) mode, Argus automatically restarts the listener. In manual mode (mic button tap), the session ends when the recognizer stops. Either way, a brief gap in speech can cause recognition to end before you finish speaking.
+The browser's voice recognition engine stops listening when it detects a pause or silence. In wake-word mode, Argus automatically restarts the listener after each session ends. When you use the mic button, the session ends as soon as the recognizer stops detecting speech. Either way, a brief gap mid-command can cause recognition to end before you finish speaking.
 
 **How to fix it**
 
@@ -131,7 +131,7 @@ The browser's SpeechRecognition API fires an `onend` event when it detects a pau
 </Steps>
 
 <Info>
-  In wake-word mode, Argus restarts the SpeechRecognition listener automatically after each `onend` event, so you don't need to refresh the page — just say "Hey Argus" again.
+  In wake-word mode, Argus automatically restarts listening after each session ends, so you don't need to refresh the page — just say "Hey Argus" again.
 </Info>
 </Accordion>
 

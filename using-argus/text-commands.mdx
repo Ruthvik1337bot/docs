@@ -1,5 +1,5 @@
 ---
-title: "Control Argus by Typing Text Commands"
+title: "Send Any Argus Command by Typing in the Text Input Box"
 sidebarTitle: "Text Commands"
 description: "Use Argus's text input box to send commands without a microphone. Supports all the same commands as voice — just type and press Send."
 ---
@@ -17,7 +17,12 @@ The text input box sits at the **bottom of the Argus interface**, always visible
     Click or tap inside the text field at the bottom of the interface to focus it. Your cursor appears and the field is ready for input.
   </Step>
   <Step title="Type your command">
-    Enter any command Argus understands — for example, `open github`, `time`, or `search google for typescript tutorials`. Text commands follow the same syntax as voice, so no special formatting is needed.
+    Enter any command Argus understands. Text commands follow the same syntax as voice — no special formatting needed. Every built-in command works here:
+
+    - `open youtube` · `open google` · `open spotify` · `open github`
+    - `search google for <query>` · `search youtube for <query>`
+    - `time` · `date`
+    - Any other phrase triggers a Google search automatically.
   </Step>
   <Step title="Submit the command">
     Press **Enter** on your keyboard or click the **Send** button. Argus immediately picks up the command and begins processing it.
@@ -36,16 +41,16 @@ The text input box sits at the **bottom of the Argus interface**, always visible
 Text input is the right choice in a variety of situations where voice isn't ideal.
 
 <CardGroup cols={2}>
-  <Card title="Noisy environments" icon="volume-high">
+  <Card title="Noisy environments" icon="volume-high" href="/using-argus/text-commands">
     Cafés, offices, public transport — anywhere background noise would interfere with speech recognition. Type your command instead and get the same result.
   </Card>
-  <Card title="No microphone available" icon="microphone-slash">
+  <Card title="No microphone available" icon="microphone-slash" href="/using-argus/text-commands">
     If your device doesn't have a microphone, or if the mic is in use by another application, text input keeps Argus fully functional.
   </Card>
-  <Card title="Unsupported browser" icon="browser">
+  <Card title="Unsupported browser" icon="browser" href="/using-argus/text-commands">
     If your browser doesn't support the Web Speech API, voice commands won't work — but text input will. All commands remain accessible.
   </Card>
-  <Card title="Situations where speaking isn't appropriate" icon="comment-slash">
+  <Card title="Silent interaction" icon="comment-slash" href="/using-argus/text-commands">
     Libraries, meetings, or any setting where you'd rather not speak aloud. Text input lets you interact silently.
   </Card>
 </CardGroup>

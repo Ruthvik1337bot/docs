@@ -11,13 +11,13 @@ Argus is a desktop voice agent that lives entirely in your browser. Say "Hey Arg
 Argus meets you wherever you are. Use the mode that fits your moment — whether your hands are full, your headset is on, or you simply prefer typing.
 
 <CardGroup cols={3}>
-  <Card title="Wake Word" icon="microphone-lines">
+  <Card title="Wake Word" icon="microphone-lines" href="/using-argus/wake-word">
     Say **"Hey Argus"** at any time. Argus listens continuously in the background and springs into command mode the instant it hears you — no clicks required.
   </Card>
-  <Card title="Mic Button" icon="circle-dot">
+  <Card title="Mic Button" icon="circle-dot" href="/using-argus/voice-commands">
     Click the microphone button in the interface to activate command-listening mode immediately. Ideal when you want precise control over exactly when Argus starts capturing your voice.
   </Card>
-  <Card title="Text Input" icon="keyboard">
+  <Card title="Text Input" icon="keyboard" href="/using-argus/text-commands">
     Type your command directly into the text field and press **Enter**. Argus processes typed commands through the same pipeline as spoken ones — you get the same responses and spoken replies.
   </Card>
 </CardGroup>
@@ -47,9 +47,11 @@ While you speak, a waveform canvas renders your live audio input in real time. T
 
 Argus handles the tasks that interrupt your flow most often:
 
-- **Open websites** — say or type "open youtube.com" and Argus navigates there in a new tab.
-- **Search the web** — say "search for best mechanical keyboards" and Argus runs a web search on your behalf.
-- **Get the current time or date** — ask "what time is it?" or "what's today's date?" and Argus reads the answer aloud.
+- **Open websites** — say or type `open youtube`, `open google`, `open spotify`, or `open github` and Argus launches the site in a new tab.
+- **Search Google** — say `search google for mechanical keyboards` and Argus opens the results in a new tab.
+- **Search YouTube** — say `search youtube for lo-fi music` and Argus opens a YouTube search for that query.
+- **Get the current time or date** — say `time` or `date` and Argus reads the answer aloud.
+- **Anything else** — if Argus does not recognise your command, it automatically falls back to a Google search for whatever you said.
 
 <Info>
   Argus is actively expanding its command library. New capabilities — such as setting reminders, controlling media, and querying weather — are planned for upcoming releases.

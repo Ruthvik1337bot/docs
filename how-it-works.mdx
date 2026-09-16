@@ -1,7 +1,7 @@
 ---
-title: "How Argus Processes Voice Commands Step by Step"
+title: "How Argus Processes Your Voice Commands Step by Step"
 sidebarTitle: "How It Works"
-description: "Understand Argus's wake-word loop, real-time speech transcription, command matching, and text-to-speech response pipeline."
+description: "A step-by-step walkthrough of how Argus detects your wake word, transcribes speech, matches commands, and delivers a spoken response."
 ---
 
 Every time you speak to Argus — whether you trigger it with "Hey Argus," tap the mic button, or type a command — your input travels through a consistent pipeline: it is heard, transcribed, understood, acted on, and spoken back to you. Understanding this pipeline helps you use Argus more effectively, set realistic expectations about response time, and troubleshoot when something does not behave as expected.
@@ -32,19 +32,21 @@ Every time you speak to Argus — whether you trigger it with "Hey Argus," tap t
     Argus compares the finalized transcript against its command library. It looks for patterns such as:
 
     - **"open [url or site name]"** → navigation command
-    - **"search for [query]"** → web search command
-    - **"what time is it"** / **"what's today's date"** → time/date information command
+    - **"search google for [query]"** → Google web search command
+    - **"search youtube for [query]"** → YouTube search command
+    - **"time"** / **"date"** → time/date information command
 
     During this matching phase, the orb switches to an **amber pulse** (thinking state) to show that processing is underway. Command matching is fast — typically under a second — but the amber pulse makes the transition visible so the interface never appears frozen.
   </Step>
   <Step title="Execute the Action">
     Once a match is confirmed, Argus carries out the corresponding action:
 
-    - **Open URL** — launches the target site in a new browser tab.
-    - **Web search** — opens a search results page for your query in a new tab.
-    - **Time or date** — retrieves the information from your device's system clock.
+    - **Open site** (`open youtube`, `open google`, `open spotify`, `open github`) — launches the site in a new browser tab.
+    - **Google search** (`search google for [query]`) — opens a Google results page in a new tab.
+    - **YouTube search** (`search youtube for [query]`) — opens a YouTube search page in a new tab.
+    - **Time or date** (`time` / `date`) — retrieves the answer from your device's system clock and reads it aloud.
 
-    If the transcript does not match any known command, Argus lets you know it did not understand and prompts you to try again.
+    If the transcript does not match any known command, Argus automatically falls back to a Google search for your input — so you always get a useful result even when a command is not recognised.
   </Step>
   <Step title="Spoken Response">
     Argus converts its reply text into speech using the browser's built-in text-to-speech engine and plays the audio through your system speakers or headphones. The orb settles into a steady **amber glow** (speaking state) for the duration of the response. Once the audio finishes, the orb fades back to its idle dim glow and the wake-word loop resumes automatically.
